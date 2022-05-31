@@ -1,0 +1,36 @@
+version: "2.1"
+
+services:
+  php: 
+    #image: php:7.4-fpm-buster
+    build:
+      context: ./.docker/php
+      args:
+        USER: 1000
+        PROJECT_NAME: "blog"
+    user: "1000"
+    volumes:
+      - /home/alex/2022/Projects_nette/Sea_Battle/nette-blog:/var/www/html
+      - .docker/php/usr/local/etc/php-fpm.d:/usr/local/etc/php-fpm.d
+
+  nginx: 
+    image: nginx:latest
+    ports:
+     - 127.0.0.1:80:80
+    volumes:
+     - /home/alex/2022/Projects_nette/Sea_Battle/nette-blog:/var/www/html
+     - .docker/nginx/etc/nginx/conf.d:/etc/nginx/conf.d
+
+  mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: gagaga159
+
+  adminer:
+    image: adminer:4.8.1
+    ports:
+    - 8080:8080
+
+    
+
+
