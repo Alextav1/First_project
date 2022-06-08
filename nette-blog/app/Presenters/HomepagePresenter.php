@@ -10,9 +10,12 @@ use Nette\Application\UI\Form;
 
 final class HomepagePresenter extends Nette\Application\UI\Presenter
 {
-  protected function createComponentRegistrationForm(): Form
+
+	
+  protected function createComponentShipsInput(): Form
 	{
 		$form = new Form;
+
 	//	$form->addText('name', 'Name:');
 	//	$form->addPassword('password', 'Password:');
 	//	$form->addSubmit('send', 'Sign up');
@@ -21,7 +24,8 @@ final class HomepagePresenter extends Nette\Application\UI\Presenter
    // $form->addCheckbox('agree', 'I agree with terms')
    // ->setRequired('You must agree with our terms');
 
-    $form->addCheckbox('agree0', ''); $form->addCheckbox('agree10', '');
+
+    $form->addCheckbox('agree0', ''); 
     $form->addCheckbox('agree1', '');
     $form->addCheckbox('agree2', '');
     $form->addCheckbox('agree3', '');
@@ -31,6 +35,114 @@ final class HomepagePresenter extends Nette\Application\UI\Presenter
     $form->addCheckbox('agree7', '');
     $form->addCheckbox('agree8', '');
     $form->addCheckbox('agree9', '');
+
+    $form->addCheckbox('agree10', '');
+		$form->addCheckbox('agree11', '');
+    $form->addCheckbox('agree12', '');
+    $form->addCheckbox('agree13', '');
+    $form->addCheckbox('agree14', '');
+    $form->addCheckbox('agree15', '');
+    $form->addCheckbox('agree16', '');
+    $form->addCheckbox('agree17', '');
+    $form->addCheckbox('agree18', '');
+    $form->addCheckbox('agree19', '');
+
+    $form->addCheckbox('agree20', '');
+		$form->addCheckbox('agree21', '');
+    $form->addCheckbox('agree22', '');
+    $form->addCheckbox('agree23', '');
+    $form->addCheckbox('agree24', '');
+    $form->addCheckbox('agree25', '');
+    $form->addCheckbox('agree26', '');
+    $form->addCheckbox('agree27', '');
+    $form->addCheckbox('agree28', '');
+    $form->addCheckbox('agree29', '');
+
+		$form->addCheckbox('agree30', '');
+		$form->addCheckbox('agree31', '');
+    $form->addCheckbox('agree32', '');
+    $form->addCheckbox('agree33', '');
+    $form->addCheckbox('agree34', '');
+    $form->addCheckbox('agree35', '');
+    $form->addCheckbox('agree36', '');
+    $form->addCheckbox('agree37', '');
+    $form->addCheckbox('agree38', '');
+    $form->addCheckbox('agree39', '');
+
+		$form->addCheckbox('agree40', '');
+		$form->addCheckbox('agree41', '');
+    $form->addCheckbox('agree42', '');
+    $form->addCheckbox('agree43', '');
+    $form->addCheckbox('agree44', '');
+    $form->addCheckbox('agree45', '');
+    $form->addCheckbox('agree46', '');
+    $form->addCheckbox('agree47', '');
+    $form->addCheckbox('agree48', '');
+    $form->addCheckbox('agree49', '');
+
+		$form->addCheckbox('agree50', '');
+		$form->addCheckbox('agree51', '');
+    $form->addCheckbox('agree52', '');
+    $form->addCheckbox('agree53', '');
+    $form->addCheckbox('agree54', '');
+    $form->addCheckbox('agree55', '');
+    $form->addCheckbox('agree56', '');
+    $form->addCheckbox('agree57', '');
+    $form->addCheckbox('agree58', '');
+    $form->addCheckbox('agree59', '');
+
+		$form->addCheckbox('agree60', '');
+		$form->addCheckbox('agree61', '');
+    $form->addCheckbox('agree62', '');
+    $form->addCheckbox('agree63', '');
+    $form->addCheckbox('agree64', '');
+    $form->addCheckbox('agree65', '');
+    $form->addCheckbox('agree66', '');
+    $form->addCheckbox('agree67', '');
+    $form->addCheckbox('agree68', '');
+    $form->addCheckbox('agree69', '');
+
+		$form->addCheckbox('agree70', '');
+		$form->addCheckbox('agree71', '');
+    $form->addCheckbox('agree72', '');
+    $form->addCheckbox('agree73', '');
+    $form->addCheckbox('agree74', '');
+    $form->addCheckbox('agree75', '');
+    $form->addCheckbox('agree76', '');
+    $form->addCheckbox('agree77', '');
+    $form->addCheckbox('agree78', '');
+    $form->addCheckbox('agree79', '');
+
+		$form->addCheckbox('agree80', '');
+		$form->addCheckbox('agree81', '');
+    $form->addCheckbox('agree82', '');
+    $form->addCheckbox('agree83', '');
+    $form->addCheckbox('agree84', '');
+    $form->addCheckbox('agree85', '');
+    $form->addCheckbox('agree86', '');
+    $form->addCheckbox('agree87', '');
+    $form->addCheckbox('agree88', '');
+    $form->addCheckbox('agree89', '');
+
+		$form->addCheckbox('agree90', '');
+		$form->addCheckbox('agree91', '');
+    $form->addCheckbox('agree92', '');
+    $form->addCheckbox('agree93', '');
+    $form->addCheckbox('agree94', '');
+    $form->addCheckbox('agree95', '');
+    $form->addCheckbox('agree96', '');
+    $form->addCheckbox('agree97', '');
+    $form->addCheckbox('agree98', '');
+    $form->addCheckbox('agree99', '');
+
+    $form->addSubmit('submit', 'Check ships');
+
+
+
+		$form->onSubmit[] = function ($form){
+			print_r($form->getValues());
+
+		};
 
 
 		return $form;
