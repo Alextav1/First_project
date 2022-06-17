@@ -24,6 +24,8 @@ Hello!!!!
 	<table>
 
 	<tr><td>{foreach $form[ships]->items as $items}{input ships:$i++}{/foreach}</td></tr>
+		{* Every checkbox should be in its own table cell *}
+		{* Use if macro and modulo operation *}
 	
    
 
@@ -349,7 +351,10 @@ Hello!!!!
 
 	h2 { font: inherit; padding: 1.2em 0; margin: 0; }
 
-	td { padding: 4px}
+	td {
+		padding: 4px;
+		border: 1px solid black;
+	}
 
 	img { border: none; float: right; margin: 0 0 1em 3em; }
 </style>
