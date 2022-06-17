@@ -4,12 +4,15 @@ declare(strict_types=1);
 
 namespace App\Presenters;
 
+use LengthException;
 use Nette;
 use Nette\Application\UI\Form;
 
 
 final class HomepagePresenter extends Nette\Application\UI\Presenter
 {
+
+	const SIZE = 10; // the variable that give for us the size of batterfield
 
 	
   protected function createComponentShipsInput(): Form
@@ -24,8 +27,114 @@ final class HomepagePresenter extends Nette\Application\UI\Presenter
    // $form->addCheckbox('agree', 'I agree with terms')
    // ->setRequired('You must agree with our terms');
 
-
-    $form->addCheckbox('agree0', ''); 
+	 $items = array_fill(0, 100, '');
+	 $form->addCheckboxList('ships', '',$items);
+	
+	 /*
+    $form->addCheckboxList('ships', '',[
+			'0' => '',
+			'1' => '',
+			'2' => '',
+			'3' => '',
+			'4' => '',
+			'5' => '',
+			'6' => '',
+			'7' => '',
+			'8' => '',
+			'9' => '',
+			'10' => '',
+			'11' => '',
+			'12' => '',
+			'13' => '',
+			'14' => '',
+			'15' => '',
+			'16' => '',
+			'17' => '',
+			'18' => '',
+			'19' => '',
+			'20' => '',
+			'21' => '',
+			'22' => '',
+			'23' => '',
+			'24' => '',
+			'25' => '',
+			'26' => '',
+			'27' => '',
+			'28' => '',
+			'29' => '',
+			'30' => '',
+			'31' => '',
+			'32' => '',
+			'33' => '',
+			'34' => '',
+			'35' => '',
+			'36' => '',
+			'37' => '',
+			'38' => '',
+			'39' => '',
+			'40' => '',
+			'41' => '',
+			'42' => '',
+			'43' => '',
+			'44' => '',
+			'45' => '',
+			'46' => '',
+			'47' => '',
+			'48' => '',
+			'49' => '',
+			'50' => '',
+			'51' => '',
+			'52' => '',
+			'53' => '',
+			'54' => '',
+			'55' => '',
+			'56' => '',
+			'57' => '',
+			'58' => '',
+			'59' => '',
+			'60' => '',
+			'61' => '',
+			'62' => '',
+			'63' => '',
+			'64' => '',
+			'65' => '',
+			'66' => '',
+			'67' => '',
+			'68' => '',
+			'69' => '',
+			'70' => '',
+			'71' => '',
+			'72' => '',
+			'73' => '',
+			'74' => '',
+			'75' => '',
+			'76' => '',
+			'77' => '',
+			'78' => '',
+			'79' => '',
+			'80' => '',
+			'81' => '',
+			'82' => '',
+			'83' => '',
+			'84' => '',
+			'85' => '',
+			'86' => '',
+			'87' => '',
+			'88' => '',
+			'89' => '',
+			'90' => '',
+			'91' => '',
+			'92' => '',
+			'93' => '',
+			'94' => '',
+			'95' => '',
+			'96' => '',
+			'97' => '',
+			'98' => '',
+			'99' => '',
+		]);
+		*/
+/*
     $form->addCheckbox('agree1', '');
     $form->addCheckbox('agree2', '');
     $form->addCheckbox('agree3', '');
@@ -134,20 +243,22 @@ final class HomepagePresenter extends Nette\Application\UI\Presenter
     $form->addCheckbox('agree97', '');
     $form->addCheckbox('agree98', '');
     $form->addCheckbox('agree99', '');
-
+*/
     $form->addSubmit('submit', 'Check ships');
 
 
 
-		$form->onSubmit[] = function ($form){
+		$form->onSuccess[] = function ($form){
 			print_r($form->getValues());
 
 		};
 
 
+
 		return $form;
 	}
 
+	/*
 	public function formSucceeded(Form $form, $data): void
 	{
 		// here we will process the data sent by the form
@@ -156,6 +267,6 @@ final class HomepagePresenter extends Nette\Application\UI\Presenter
 		$this->flashMessage('You have successfully signed up.');
 		$this->redirect('Homepage:');
 	}
-
+*/
   
 }

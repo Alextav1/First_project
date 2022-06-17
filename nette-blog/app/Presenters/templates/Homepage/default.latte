@@ -9,15 +9,170 @@ Hello!!!!
 <h1>Sea Battle</h1>
 <div id="battlefield">
 
-{*control registrationForm*}
-
-
 
 {form shipsInput}
+{dump $form['ships']}
+{dump $form['ships']->getOption('size')}
 
+
+{$i=0}
+{*foreach $form[ships]->items as $items*}
+
+{*<label n:name="ships:$key"><input n:name="ships:$key"> {$label}</label>*}
+{*<input ships:0>*}
+
+	<table>
+
+	<tr><td>{foreach $form[ships]->items as $items}{input ships:$i++}{/foreach}</td></tr>
+	
+   
+
+	   {*<td>{input ships:$i++}</td>*}
+  
+		
+		{*	<td>{input ships:1}</td>*}
+		
+		{*print_r("$items")*}
+    {*print_r("$key")*}
+		{*var_dump($form[ships]->items)*}
+	
+
+{*
+<tr>{$aaa}
+		{<td>{input ships:$key}</td>}
+		<td>{input ships:0}</td> 
+</tr>
+*}
+</table>
+{*/foreach*}
+{/form}
+{*control shipsInput*}
+
+{*
 <table>
 <tr>
-	<td>{input agree0}</td>
+	<td>{input ships:0 }</td>
+	<td>{input ships:1 }</td>
+	<td>{input ships:2 }</td>
+	<td>{input ships:3 }</td>
+	<td>{input ships:4 }</td>
+	<td>{input ships:5 }</td>
+	<td>{input ships:6 }</td>
+	<td>{input ships:7 }</td>
+	<td>{input ships:8 }</td>
+	<td>{input ships:9 }</td>
+</tr>
+<tr>
+	<td>{input ships:10 }</td>
+	<td>{input ships:11 }</td>
+	<td>{input ships:12 }</td>
+	<td>{input ships:13 }</td>
+	<td>{input ships:14 }</td>
+	<td>{input ships:15 }</td>
+	<td>{input ships:16 }</td>
+	<td>{input ships:17 }</td>
+	<td>{input ships:18 }</td>
+	<td>{input ships:19 }</td>
+</tr>
+<tr>
+	<td>{input ships:20 }</td>
+	<td>{input ships:21 }</td>
+	<td>{input ships:22 }</td>
+	<td>{input ships:23 }</td>
+	<td>{input ships:24 }</td>
+	<td>{input ships:25 }</td>
+	<td>{input ships:26 }</td>
+	<td>{input ships:27 }</td>
+	<td>{input ships:28 }</td>
+	<td>{input ships:29 }</td>
+</tr>
+<tr>
+	<td>{input ships:30 }</td>
+	<td>{input ships:31 }</td>
+	<td>{input ships:32 }</td>
+	<td>{input ships:33 }</td>
+	<td>{input ships:34 }</td>
+	<td>{input ships:35 }</td>
+	<td>{input ships:36 }</td>
+	<td>{input ships:37 }</td>
+	<td>{input ships:38 }</td>
+	<td>{input ships:39 }</td>
+</tr>
+<tr>
+	<td>{input ships:40 }</td>
+	<td>{input ships:41 }</td>
+	<td>{input ships:42 }</td>
+	<td>{input ships:43 }</td>
+	<td>{input ships:44 }</td>
+	<td>{input ships:45 }</td>
+	<td>{input ships:46 }</td>
+	<td>{input ships:47 }</td>
+	<td>{input ships:48 }</td>
+	<td>{input ships:49 }</td>
+</tr>
+<tr>
+	<td>{input ships:50 }</td>
+	<td>{input ships:51 }</td>
+	<td>{input ships:52 }</td>
+	<td>{input ships:53 }</td>
+	<td>{input ships:54 }</td>
+	<td>{input ships:55 }</td>
+	<td>{input ships:56 }</td>
+	<td>{input ships:57 }</td>
+	<td>{input ships:58 }</td>
+	<td>{input ships:59 }</td>
+</tr>
+<tr>
+	<td>{input ships:60 }</td>
+	<td>{input ships:61 }</td>
+	<td>{input ships:62 }</td>
+	<td>{input ships:63 }</td>
+	<td>{input ships:64 }</td>
+	<td>{input ships:65 }</td>
+	<td>{input ships:66 }</td>
+	<td>{input ships:67 }</td>
+	<td>{input ships:68 }</td>
+	<td>{input ships:69 }</td>
+</tr>
+<tr>
+	<td>{input ships:70 }</td>
+	<td>{input ships:71 }</td>
+	<td>{input ships:72 }</td>
+	<td>{input ships:73 }</td>
+	<td>{input ships:74 }</td>
+	<td>{input ships:75 }</td>
+	<td>{input ships:76 }</td>
+	<td>{input ships:77 }</td>
+	<td>{input ships:78 }</td>
+	<td>{input ships:79 }</td>
+</tr>
+<tr>
+	<td>{input ships:80 }</td>
+	<td>{input ships:81 }</td>
+	<td>{input ships:82 }</td>
+	<td>{input ships:83 }</td>
+	<td>{input ships:84 }</td>
+	<td>{input ships:85 }</td>
+	<td>{input ships:86 }</td>
+	<td>{input ships:87 }</td>
+	<td>{input ships:88 }</td>
+	<td>{input ships:89 }</td>
+</tr>
+<tr>
+	<td>{input ships:90 }</td>
+	<td>{input ships:91 }</td>
+	<td>{input ships:92 }</td>
+	<td>{input ships:93 }</td>
+	<td>{input ships:94 }</td>
+	<td>{input ships:95 }</td>
+	<td>{input ships:96 }</td>
+	<td>{input ships:97 }</td>
+	<td>{input ships:98 }</td>
+	<td>{input ships:99 }</td>
+</tr>
+*}
+
+	{*
 	<td>{input agree1}</td>
 	<td>{input agree2}</td>
 	<td>{input agree3}</td>
@@ -27,7 +182,7 @@ Hello!!!!
 	<td>{input agree7}</td>
 	<td>{input agree8}</td>
 	<td>{input agree9}</td>
-</tr>
+
 
 <tr>
 	<td>{input agree10}</td>
@@ -145,12 +300,16 @@ Hello!!!!
 	<td>{input agree98}</td>
 	<td>{input agree99}</td>
 </tr>
+
 </table>
 
-{input submit}
+
 
 {/form}
 
+
+{input submit}
+*}
 </div>
 
 
@@ -176,8 +335,8 @@ Hello!!!!
 	body { background: #3484d2; color: #333; margin: 2em auto; padding: 0 .5em; max-width: 600px; min-width: 320px; }
 
 
-	a { color: #006aeb; padding: 3px 1px; }
-	a:hover, a:active, a:focus { background-color: #006aeb; text-decoration: none; color: white; }
+	{*a { color: #006aeb; padding: 3px 1px; } *}
+	{*a:hover, a:active, a:focus { background-color: #006aeb; text-decoration: none; color: white; } *}
   
 	#banner { border-radius: 12px 12px 0 0; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAB5CAMAAADPursXAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAGBQTFRFD1CRDkqFDTlmDkF1D06NDT1tDTNZDk2KEFWaDTZgDkiCDTtpDT5wDkZ/DTBVEFacEFOWD1KUDTRcDTFWDkV9DkR7DkN4DkByDTVeDC9TDThjDTxrDkeADkuIDTRbDC9SbsUaggAAAEdJREFUeNqkwYURgAAQA7DH3d3335LSKyxAYpf9vWCpnYbf01qcOdFVXc14w4BznNTjkQfsscAdU3b4wIh9fDVYc4zV8xZgAAYaCMI6vPgLAAAAAElFTkSuQmCC); }
   #battlefield { width: 300px; height: 335px; border:1px solid #eff4f7;}
