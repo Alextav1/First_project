@@ -15,17 +15,39 @@ Hello!!!!
 {dump $form['ships']->getOption('size')}
 
 
-{$i=0}
+{var $i=0}
+{var $size1 = 10}
 {*foreach $form[ships]->items as $items*}
 
 {*<label n:name="ships:$key"><input n:name="ships:$key"> {$label}</label>*}
 {*<input ships:0>*}
 
-	<table>
+<table>
+{foreach $form[ships]->items as $key => $items}
 
+{if}
+<tr></tr>
+{/if $key % $size1 == 0}
+{if}
+<td>{input ships:$key}</td>
+{/if $key % $size1 != 0 || $key % $size1 == 0 }
+
+
+<<<<<<< Updated upstream
 	<tr><td>{foreach $form[ships]->items as $items}{input ships:$i++}{/foreach}</td></tr>
 		{* Every checkbox should be in its own table cell *}
 		{* Use if macro and modulo operation *}
+=======
+{/foreach}
+	{*
+	{elseif $i>9 && $i<20}
+	<tr><td>{input ships:$i++}</td></tr>
+	{elseif $i>19 && $i<30}
+	<tr><td>{input ships:$i++}</td></tr>
+   *}
+	
+	
+>>>>>>> Stashed changes
 	
    
 
@@ -46,10 +68,15 @@ Hello!!!!
 </tr>
 *}
 </table>
+
+
+
 {*/foreach*}
 {/form}
+{*button $form ->_submit*}
+{*SubmitButton*}
 {*control shipsInput*}
-
+{*button submit*}
 {*
 <table>
 <tr>
@@ -309,10 +336,13 @@ Hello!!!!
 
 {/form}
 
-
 {input submit}
+
 *}
 </div>
+
+
+
 
 
 <!--	 
@@ -341,7 +371,7 @@ Hello!!!!
 	{*a:hover, a:active, a:focus { background-color: #006aeb; text-decoration: none; color: white; } *}
   
 	#banner { border-radius: 12px 12px 0 0; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAB5CAMAAADPursXAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAGBQTFRFD1CRDkqFDTlmDkF1D06NDT1tDTNZDk2KEFWaDTZgDkiCDTtpDT5wDkZ/DTBVEFacEFOWD1KUDTRcDTFWDkV9DkR7DkN4DkByDTVeDC9TDThjDTxrDkeADkuIDTRbDC9SbsUaggAAAEdJREFUeNqkwYURgAAQA7DH3d3335LSKyxAYpf9vWCpnYbf01qcOdFVXc14w4BznNTjkQfsscAdU3b4wIh9fDVYc4zV8xZgAAYaCMI6vPgLAAAAAElFTkSuQmCC); }
-  #battlefield { width: 300px; height: 335px; border:1px solid #eff4f7;}
+  #battlefield { width: 282px; height: 335px; border:1px solid #eff4f7;}
 	h1 { font: inherit; color: white; font-size: 50px; line-height: 121px; margin: 0; padding-left: 4%; background: url(https://files.nette.org/images/logo-nette@2.png) no-repeat 95%; background-size: 130px auto; text-shadow: 1px 1px 0 rgba(0, 0, 0, .9); }
 	@media (max-width: 600px) {
 		h1 { background: none; font-size: 40px; }
@@ -352,9 +382,16 @@ Hello!!!!
 	h2 { font: inherit; padding: 1.2em 0; margin: 0; }
 
 	td {
+<<<<<<< Updated upstream
 		padding: 4px;
 		border: 1px solid black;
 	}
+=======
+		 padding: 2px;
+		 border: 1px solid white;
+	}
+
+>>>>>>> Stashed changes
 
 	img { border: none; float: right; margin: 0 0 1em 3em; }
 </style>
