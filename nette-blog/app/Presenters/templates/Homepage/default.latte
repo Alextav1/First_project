@@ -25,12 +25,12 @@ Hello!!!!
 <table>
 {foreach $form[ships]->items as $key => $items}
 
-{if}
+{if $key % $size1 == 0}
 <tr></tr>
-{/if $key % $size1 == 0}
-{if}
+{/if}
+{if $key % $size1 != 0 || $key % $size1 == 0}
 <td>{input ships:$key}</td>
-{/if $key % $size1 != 0 || $key % $size1 == 0 }
+{/if}
 
 {*
 	<tr><td>{foreach $form[ships]->items as $items}{input ships:$i++}{/foreach}</td></tr>
