@@ -28,7 +28,7 @@ Hello!!!!
 {if $key % $size1 == 0}
 <tr></tr>
 {/if}
-{if $key % $size1 != 0 || $key % $size1 == 0}
+{if $key % $size1 != 0 || $key % $size1 == 0} {* Michal: this condition is always true, so it does not make a sence. *}
 <td>{input ships:$key}</td>
 {/if}
 
