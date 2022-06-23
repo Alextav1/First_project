@@ -16,7 +16,7 @@ Hello!!!!
 
 
 {var $i=0}
-{var $size1 = 10}
+{var $size1 = $form['ships']->getOption('size')}
 {*foreach $form[ships]->items as $items*}
 
 {*<label n:name="ships:$key"><input n:name="ships:$key"> {$label}</label>*}

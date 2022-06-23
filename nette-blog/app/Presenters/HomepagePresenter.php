@@ -28,7 +28,8 @@ final class HomepagePresenter extends Nette\Application\UI\Presenter
    // ->setRequired('You must agree with our terms');
 
 	 $items = array_fill(0, 100, '');
-	 $form->addCheckboxList('ships', '',$items);
+	 $form->addCheckboxList('ships', '',$items)
+	    ->setOption('size', static::SIZE);
 	
 	 /*
     $form->addCheckboxList('ships', '',[
