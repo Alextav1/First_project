@@ -22,15 +22,29 @@ Hello!!!!
 {*<label n:name="ships:$key"><input n:name="ships:$key"> {$label}</label>*}
 {*<input ships:0>*}
 
-<table>
+<table> 
 {foreach $form[ships]->items as $key => $items}
-
 {if $key % $size1 == 0}
 <tr></tr>
 {/if}
-{if $key % $size1 != 0 || $key % $size1 == 0} {* Michal: this condition is always true, so it does not make a sence. *}
+
 <td>{input ships:$key}</td>
-{/if}
+
+{/foreach}
+</table>
+{/form}
+{*HOW to ADD THE BUTTON SUBMIT ???*}
+{*button $form ->_submit*}
+{*SubmitButton*}
+{*control shipsInput*}
+{*button submit*}
+{*form  submit*}
+{*
+
+{*if $key % $size1 != 0 || $key % $size1 == 0*} {* Michal: this condition is always true, so it does not make a sence. *}
+{*<td>{input ships:$key}</td>*}
+{*/if*}
+
 
 {*
 	<tr><td>{foreach $form[ships]->items as $items}{input ships:$i++}{/foreach}</td></tr>
@@ -38,7 +52,7 @@ Hello!!!!
 		{* Every checkbox should be in its own table cell *}
 		{* Use if macro and modulo operation *}
 	
-{/foreach}
+{*/foreach*}
 
 
 	{*
@@ -68,12 +82,12 @@ Hello!!!!
 		<td>{input ships:0}</td> 
 </tr>
 *}
-</table>
+{*</table>*}
 
 
 
 {*/foreach*}
-{/form}
+{*/form*}
 {*button $form ->_submit*}
 {*SubmitButton*}
 {*control shipsInput*}
