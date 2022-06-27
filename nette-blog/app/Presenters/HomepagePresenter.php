@@ -269,9 +269,28 @@ final class HomepagePresenter extends Nette\Application\UI\Presenter
 					}
 					elseif($counter == 1) { 
 						echo 'The ship is added!';
+
 						}
 						else{
-							echo 'You can add only one ship.';
+							foreach($shipsArray->ships as $key=>$items){
+								foreach($shipsArray->ships as $key2=>$items){
+									if($shipsArray->ships[$key] != $shipsArray->ships[$key2]){
+										if ($shipsArray->ships[$key] == $shipsArray->ships[$key2]+1  ||
+										    $shipsArray->ships[$key] == $shipsArray->ships[$key2]+9 ||
+												$shipsArray->ships[$key] == $shipsArray->ships[$key2]+10 ||
+												$shipsArray->ships[$key] == $shipsArray->ships[$key2]+11)
+												{
+													echo 'The distance between ships must be one box';
+												}
+									}
+
+								}
+
+						//	echo '<br>'.$items;
+							}
+
+
+							//echo 'You can add only one ship.';
 						}
 							//	foreach($shipsArray->ships as $key=>$items){
 						//	if ($shipsArray->ships[$key] !=$shipsArray->ships[$key]+1 )
