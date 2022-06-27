@@ -7,6 +7,9 @@ namespace App\Presenters;
 use LengthException;
 use Nette;
 use Nette\Application\UI\Form;
+use Nette\Utils\Arrays;
+use Nette\Utils\ArrayHash;
+use Nette\Utils\Callback;
 
 
 final class HomepagePresenter extends Nette\Application\UI\Presenter
@@ -251,6 +254,29 @@ final class HomepagePresenter extends Nette\Application\UI\Presenter
 
 		$form->onSuccess[] = function ($form){
 			print_r($form->getValues());
+			$shipsArray = $form->getValues();
+
+
+			//echo '<pre>';
+			//var_dump($shipsArray->ships);
+	  	//	echo '<pre>';
+			//echo $shipsArray->ships[0];
+
+			
+			$counter = count($shipsArray->ships);
+			if($counter == 0){
+				echo 'Add the ship!';
+					}
+					elseif($counter == 1) { 
+						echo 'The ship is added!';
+						}
+						else{
+							echo 'You can add only one ship.';
+						}
+							//	foreach($shipsArray->ships as $key=>$items){
+						//	if ($shipsArray->ships[$key] !=$shipsArray->ships[$key]+1 )
+						//	echo '<br>'.$items;				
+
 
 		};
 

@@ -15,8 +15,16 @@ Hello!!!!
 {dump $form['ships']->getOption('size')}
 
 
+
+
 {var $i=0}
 {var $size1 = $form['ships']->getOption('size')}
+{*$this->shipsArray*}
+{*$formSuccess =$form['ships']->getOption('formSucceeded')*}
+
+
+{*$form->onSuccess[]=[$this, 'formSucceeded'];*}
+
 {*foreach $form[ships]->items as $items*}
 
 {*<label n:name="ships:$key"><input n:name="ships:$key"> {$label}</label>*}
@@ -32,7 +40,15 @@ Hello!!!!
 
 {/foreach}
 </table>
+
+{*<input type="submit" name="_submit" value="Check ships" class="button">*}
+{input submit}
+
 {/form}
+
+{*input submit*}
+{*<button type="submit"></button>*}
+{*input button: submit*}
 {*HOW to ADD THE BUTTON SUBMIT ???*}
 {*button $form ->_submit*}
 {*SubmitButton*}
