@@ -34,23 +34,26 @@ final class HomepagePresenter extends Nette\Application\UI\Presenter
 			print_r($form->getValues());
 			$shipsArray = $form->getValues();
 
-			$counter = count($shipsArray->ships);
-			$flag = true;
-			if($counter == 0){
-				echo 'Add the ship!';
+			function validateShipLocation($arrayToValidate) {
+
+				$counter = count($arrayToValidate);
+				$flag = true;
+
+				if($counter == 0){
+					echo 'Add the ship!';
 					}
 					elseif($counter == 1) { 
 						echo 'The ship is added!';
 						}
 						else{
-							foreach($shipsArray->ships as $key=>$items){
-								foreach($shipsArray->ships as $key2=>$items){
-									if($shipsArray->ships[$key] != $shipsArray->ships[$key2] ) {
-										if ($shipsArray->ships[$key] == $shipsArray->ships[$key2]+1 && $items%10!=9 ||
-										    $shipsArray->ships[$key] == $shipsArray->ships[$key2]+9 && $items%10!=0 ||									
-												$shipsArray->ships[$key] == $shipsArray->ships[$key2]+10 && $items%10!=9 ||																						
-												$shipsArray->ships[$key] == $shipsArray->ships[$key2]+11 && $items%10!=9 ||
-												$shipsArray->ships[$key] == $shipsArray->ships[$key2]+10)
+							foreach($arrayToValidate as $key=>$items){
+								foreach($arrayToValidate as $key2=>$items){
+									if($arrayToValidate[$key] != $arrayToValidate[$key2] ) {
+										if ($arrayToValidate[$key] == $arrayToValidate[$key2]+1 && $items%10!=9 ||
+										    $arrayToValidate[$key] == $arrayToValidate[$key2]+9 && $items%10!=0 ||									
+												$arrayToValidate[$key] == $arrayToValidate[$key2]+10 && $items%10!=9 ||																						
+												$arrayToValidate[$key] == $arrayToValidate[$key2]+11 && $items%10!=9 ||
+												$arrayToValidate[$key] == $arrayToValidate[$key2]+10)
 												{
 													$flag = false;													
 												} 
@@ -59,10 +62,12 @@ final class HomepagePresenter extends Nette\Application\UI\Presenter
 									} 
 									if($flag == false) {
 										echo 'The distance between ships must be one box';
-									}
-									
+									}									
 								}
-							};
-							return $form;
-						}
-					}
+								return $flag;
+			}
+			 validateShipLocation($shipsArray->ships);
+			};
+			return $form;
+		}
+	}
