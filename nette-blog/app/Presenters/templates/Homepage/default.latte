@@ -14,7 +14,8 @@ Hello!!!!
 
 <table> 
 {foreach $form[ships]->items as $key => $items}
-{if $key % $size1 == 0}
+{dump $key}
+{if (int) $key[2] == 0}
 <tr></tr>
 {/if}
 <td>{input ships:$key}</td>

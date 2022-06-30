@@ -11,7 +11,7 @@ use Nette\Schema\ValidationException;
 use Nette\Utils\Arrays;
 use Nette\Utils\ArrayHash;
 use Nette\Utils\Callback;
-
+use Tracy\Dumper;
 
 final class HomepagePresenter extends Nette\Application\UI\Presenter
 {
@@ -49,8 +49,23 @@ final class HomepagePresenter extends Nette\Application\UI\Presenter
   protected function createComponentShipsInput(): Form
 	{
 		$form = new Form;
+    $items = [];
+		//$key = 'a';
 
-		$items = array_fill(0, static::SIZE*static::SIZE, '');
+		for ($i = 0; $i < static::SIZE; $i++) {
+			for($j = 0; $j < static::SIZE; $j++) {
+				$items[$i.'-'.$j]= '';
+			}
+
+			//$key++;
+
+			
+			//$items = array_fill(0, static::SIZE*static::SIZE, '');
+		}
+			
+		//$items = array_fill(0, static::SIZE*static::SIZE, '');
+		Dumper::dump($items);
+	
 
 		$form->addCheckboxList('ships', '',$items)
 		     ->setOption('size', static::SIZE);
@@ -59,15 +74,64 @@ final class HomepagePresenter extends Nette\Application\UI\Presenter
 
 		$form->onSuccess[] = function ($form)
 		{
-			print_r($form->getValues());
-			$shipsArray = $form->getValues();
+			print_r($form->getValues(true));
+			$shipsArray = $form->getValues(true);
 
-			 $this->validateShipLocation($shipsArray->ships);
+			$arraynot2d = array_flip($shipsArray['ships']);  //	$array2d = $shipsArray['ships'];// convert to 2d array
+			Dumper::dump($arraynot2d);
+			$array2d=[];
+			for($row = 0; $row < static::SIZE; $row++){
+				for($col =0;$col < static::SIZE; $col++)
+				if(array_key_exists((string)$row.'-'.(string)$col, $arraynot2d) ){
+					$array2d[$row][$col]=1;
+				} else{
+					$array2d[$row][$col]=0;
+				}
+       
+			} 
+			Dumper::dump($array2d);
+
+			// $this->validateShipLocation($array2d);
+
+			 if ($this->validateShipLocation2($array2d)){
+				echo 'Ships are added!';
+			 } else
+			 {
+				echo 'The distance between ships must be one box';
+			 }
 			};
 			return $form;
 		}
 
+		protected function validateShipLocation2($arrayToValidate){
 
+			$flag = true;
+
+			for($row = 0; $row < static::SIZE; $row++){
+				for($col = 0; $col < static::SIZE; $col++){
+
+						if($arrayToValidate[$row][$col] == 1 ) {
+
+							if ($col!=0 && $arrayToValidate[$row][$col-1] ||
+							    $col!=0 && $row!=0 && $arrayToValidate[$row-1][$col-1] ||
+									$row!=0 && $arrayToValidate[$row-1][$col] ||
+									$col!=9 && $row!=0 && $arrayToValidate[$row-1][$col+1] ||
+							    $col!=9 && $arrayToValidate[$row][$col+1]==1||
+									$col!=9 && $row!=9 && $arrayToValidate[$row+1][$col+1] ||
+									$row!=9 && $arrayToValidate[$row+1][$col]==1 ||	
+						      $col!=0 && $row!=9 && $arrayToValidate[$row+1][$col-1]							  
+									)
+									{
+										$flag = false;													
+									}
+								}
+							}
+						}
+						return $flag;
+					}
+
+
+/*
 		protected function validateShipLocation($arrayToValidate) {
 
 			$counter = count($arrayToValidate);
@@ -100,4 +164,6 @@ final class HomepagePresenter extends Nette\Application\UI\Presenter
 							}
 							return $flag;
 		}
+		*/
+
 	}
